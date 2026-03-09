@@ -11,7 +11,7 @@ def read_root():
 
 
 @app.get("/add/{a}/{b}", status_code=200)
-def add(a: string, b: string):
+def add(a: str, b: str):
     """
     Add two numbers together.
     
