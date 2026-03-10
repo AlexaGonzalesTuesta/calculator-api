@@ -12,16 +12,6 @@ def read_root():
 
 @app.get("/add/{a}/{b}", status_code=200)
 def add(a: str, b: str):
-    """
-    Add two numbers together.
-    
-    Parameters:
-    - a: First number
-    - b: Second number
-    
-    Returns:
-    - JSON object with the result
-    """
     try:
         a = int(a)
         b = int(b)
@@ -29,3 +19,33 @@ def add(a: str, b: str):
         raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
 
     return {"result": a + b}
+
+@app.get("/subtract/{a}/{b}", status_code=200)
+def subtract(a: str, b: str):
+    try:
+        a = int(a)
+        b = int(b)
+    except ValueError:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
+
+    return {"result": a - b}
+
+@app.get("/multiply/{a}/{b}", status_code=200)
+def multiply(a: str, b: str):
+    try:
+        a = int(a)
+        b = int(b)
+    except ValueError:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
+    return {"result": a * b}
+
+@app.get("/divide/{a}/{b}", status_code=200)
+def divide(a: str, b: str):
+    try:
+        a = int(a)
+        b = int(b)
+    except ValueError:
+        raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="Both a and b must be valid numbers")
+    if (b == 0):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Cannot divide by zero")
+    return {"result": a / b}
