@@ -12,6 +12,7 @@ def read_root():
 
 @app.get("/add/{a}/{b}", status_code=200)
 def add(a: str, b: str):
+    """Adds two numbers and returns their sum."""
     try:
         a = float(a)
         b = float(b)
@@ -22,6 +23,7 @@ def add(a: str, b: str):
 
 @app.get("/subtract/{a}/{b}", status_code=200)
 def subtract(a: str, b: str):
+    """Subtracts the second number from the first number and returns the result."""
     try:
         a = float(a)
         b = float(b)
@@ -32,6 +34,7 @@ def subtract(a: str, b: str):
 
 @app.get("/multiply/{a}/{b}", status_code=200)
 def multiply(a: str, b: str):
+    """Multiplies two numbers and returns the product."""
     try:
         a = float(a)
         b = float(b)
@@ -47,6 +50,7 @@ def multiply(a: str, b: str):
 
 @app.get("/divide/{a}/{b}", status_code=200)
 def divide(a: str, b: str):
+    """Divides the first number by the second number and returns the quotient."""
     try:
         a = float(a)
         b = float(b)
@@ -58,6 +62,7 @@ def divide(a: str, b: str):
 
 @app.get("/sqrt/{a}", status_code=200)
 def square_root(a: str):
+    """Returns the square root of a number."""
     try:
         a = float(a)
     except ValueError:
